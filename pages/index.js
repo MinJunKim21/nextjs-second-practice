@@ -22,13 +22,13 @@ export default function Home({results}) {
   const router = useRouter()
   const onClick = (id, title) => {
     router.push(
-      {
-        pathname: `/movies/${id}`,
-        query: {
-          title
-        }, //router.query를 콘솔해보면 query 값에 들어가있음
-      },
-      `/movies/${id}`
+      // {
+      //   pathname: `/movies/${id}`,
+      //   query: {
+      //     title
+      //   }, //router.query를 콘솔해보면 query 값에 들어가있음
+      // },
+      `/movies/${title}/${id}`
     )
   } //router.push("url") : 지정한 경로로 이동하며 히스토리 스택에 URL를 추가합니다.
   return (
@@ -38,14 +38,15 @@ export default function Home({results}) {
         <div onClick={()=> onClick(movie.id, movie.original_title)} className="movie" key={movie.id}>
           <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
           <h4>
-            <Link
-              href={{
-                pathname:`/movies/${movie.id}`,
-                query: {
-                  title: movie.original_title,
-                },
-              }}
-              as={`/movies/${movie.id}`}>
+            <Link href={`/movies/${movie.original_title}/$movie.id}`}
+              // href={{
+              //   pathname:`/movies/${movie.id}`,
+              //   query: {
+              //     title: movie.original_title,
+              //   },
+              // }}
+              // as={`/movies/${movie.id}`}
+            >
             <a>{movie.original_title}</a>
             </Link>
           </h4>
