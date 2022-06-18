@@ -33,6 +33,10 @@ const nextConfig = {
       {
         source: "/api/movies", //이게 싸이트 inspect하면 대신 노출되는 소스
         destination: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+      },
+      {
+        source: "/api/movies/:id", //이게 싸이트 inspect하면 대신 노출되는 소스
+        destination: `https://api.themoviedb.org/3/movie/id?api_key=${API_KEY}`
       }
     ]
   }
